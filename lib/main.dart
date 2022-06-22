@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snus_shop/page/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,9 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Snus Shop',
-      home: Center(child: Text("SNUS")),
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.greenAccent,
+        foregroundColor: Colors.black,
+      )),
+      home: const Home(),
     );
   }
 }
