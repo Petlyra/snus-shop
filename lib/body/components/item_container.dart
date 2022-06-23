@@ -12,7 +12,7 @@ class ItemContainer extends StatelessWidget {
   const ItemContainer({Key? key, required this.child}) : super(key: key);
 
   final double itemWidth = 160;
-  final double itemHeight = 160;
+  final double itemHeight = 190;
 
   final Widget child;
 

@@ -13,7 +13,7 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(0),
+      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: ListView.builder(
         itemCount: getCountOfItems(),
         itemBuilder: (context, i) {
