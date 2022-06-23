@@ -20,19 +20,33 @@ class _ContainerContentState extends State<ContainerContent> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         widget.image,
-        Text(
-          widget.name,
-          style: const TextStyle(color: Colors.black, fontSize: 25),
+        Center(
+          child: Text(
+            widget.name,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 14,
+              backgroundColor: Colors.white,
+            ),
+          ),
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               widget.price,
-              style: const TextStyle(color: Colors.red, fontSize: 28),
+              style: const TextStyle(
+                color: Colors.redAccent,
+                fontWeight: FontWeight.w500,
+                fontSize: 18,
+                backgroundColor: Colors.white,
+              ),
             ),
             const IconButton(
-              icon: Icon(Icons.account_balance_wallet),
+              icon: Icon(
+                Icons.account_balance_wallet,
+                color: Colors.blueAccent,
+              ),
               tooltip: "Buy",
               onPressed: null,
             ),
