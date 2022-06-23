@@ -1,25 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:snus_shop/page/home.dart';
+
+import '../../page/edit.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({Key? key}) : super(key: key);
-
-  // void pushEdit() {
-  //   Navigator.of(context).push(MaterialPageRoute<void>(builder: (context) {
-  //     return const Edit();
-  //   }));
-  // }
-  //
-  // void pushHome() {
-  //   Navigator.of(context).pop();
-  // }
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: const <Widget>[
-          DrawerHeader(
+        children: <Widget>[
+          const DrawerHeader(
             child: Center(
               child: Text(
                 "Menu",
@@ -28,14 +21,24 @@ class SideMenu extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.account_balance_wallet),
-            title: Text('Shop'),
-            onTap: null,
+            leading: const Icon(Icons.account_balance_wallet),
+            title: const Text('Shop'),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute<void>(builder: (context) {
+                return const Home();
+              }));
+            },
           ),
           ListTile(
-            leading: Icon(Icons.mode_edit_outline),
-            title: Text('Edit items'),
-            onTap: null,
+            leading: const Icon(Icons.mode_edit_outline),
+            title: const Text('Edit items'),
+            onTap: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute<void>(builder: (context) {
+                return const Edit();
+              }));
+            },
           ),
         ],
       ),
