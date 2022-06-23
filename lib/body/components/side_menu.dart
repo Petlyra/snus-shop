@@ -3,6 +3,16 @@ import 'package:flutter/material.dart';
 class SideMenu extends StatelessWidget {
   const SideMenu({Key? key}) : super(key: key);
 
+  // void pushEdit() {
+  //   Navigator.of(context).push(MaterialPageRoute<void>(builder: (context) {
+  //     return const Edit();
+  //   }));
+  // }
+  //
+  // void pushHome() {
+  //   Navigator.of(context).pop();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -23,8 +33,8 @@ class SideMenu extends StatelessWidget {
             onTap: null,
           ),
           ListTile(
-            leading: Icon(Icons.add_circle),
-            title: Text('Add new product'),
+            leading: Icon(Icons.mode_edit_outline),
+            title: Text('Edit items'),
             onTap: null,
           ),
         ],
