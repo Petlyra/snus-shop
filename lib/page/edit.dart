@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:snus_shop/body/edit_body.dart';
 
 import '../appBar/custom_app_bar.dart';
-import '../body/components/side_menu.dart';
+import '../body/widgets/side_menu.dart';
 
 class Edit extends StatelessWidget {
   const Edit({Key? key}) : super(key: key);
@@ -13,7 +13,16 @@ class Edit extends StatelessWidget {
       drawer: SideMenu(),
       appBar: CustomAppBar(
         title: Text("Edit items"),
-        widgets: [],
+        widgets: [
+          IconButton(
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            tooltip: 'Search',
+            onPressed: null,
+          )
+        ],
       ),
       body: EditBody(),
     );
