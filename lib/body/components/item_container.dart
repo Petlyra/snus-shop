@@ -6,9 +6,9 @@ final itemBoxStyle = BoxDecoration(
 );
 
 class ItemContainer extends StatefulWidget {
-  const ItemContainer({Key? key, required this.child}) : super(key: key);
+  const ItemContainer({Key? key, required this.image}) : super(key: key);
 
-  final Widget child;
+  final Widget image;
 
   @override
   State<ItemContainer> createState() => _ItemContainerState();
@@ -25,7 +25,7 @@ class _ItemContainerState extends State<ItemContainer> {
       decoration: itemBoxStyle,
       width: itemWidth,
       height: itemHeight,
-      child: widget.child,
+      child: widget.image,
     );
   }
 }

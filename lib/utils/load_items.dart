@@ -6,11 +6,11 @@ final items = [
   ItemRow(
     items: [
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/Vika.jpg",
       )),
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/G4.jpg",
       )),
     ],
@@ -18,11 +18,11 @@ final items = [
   ItemRow(
     items: [
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/Shiro.jpg",
       )),
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/Siberia.jpg",
       )),
     ],
@@ -30,11 +30,11 @@ final items = [
   ItemRow(
     items: [
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/Odens.jpg",
       )),
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/Baron.jpg",
       )),
     ],
@@ -42,11 +42,11 @@ final items = [
   ItemRow(
     items: [
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/LYFT.jpg",
       )),
       ItemContainer(
-          child: Image.asset(
+          image: Image.asset(
         "assets/Thunder.jpg",
       )),
     ],
