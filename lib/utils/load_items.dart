@@ -54,14 +54,3 @@ final items = [
 ];
 
 int getCountOfItems() => items.length;
-
-// class Items extends StatelessWidget {
-//   const Items({Key? key}) : super(key: key);
-//
-//
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(mainAxisAlignment: MainAxisAlignment.start, children: items);
-//   }
-// }

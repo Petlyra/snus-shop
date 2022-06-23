@@ -10,8 +10,6 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
 
-  // final Items items = const Items();
-
   @override
   Widget build(BuildContext context) {
     return Container(
