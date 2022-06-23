@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:snus_shop/body/components/container_content.dart';
+import 'package:snus_shop/utils/prices.dart';
+
+const double itemWidth = 160;
+const double itemHeight = 190;
 
 final itemBoxStyle = BoxDecoration(
   border: Border.all(color: Colors.blueAccent, width: 5),
@@ -6,18 +11,17 @@ final itemBoxStyle = BoxDecoration(
 );
 
 class ItemContainer extends StatefulWidget {
-  const ItemContainer({Key? key, required this.image}) : super(key: key);
+  const ItemContainer({Key? key, required this.image, required this.name})
+      : super(key: key);
 
   final Widget image;
+  final String name;
 
   @override
   State<ItemContainer> createState() => _ItemContainerState();
 }
 
 class _ItemContainerState extends State<ItemContainer> {
-  final double itemWidth = 160;
-  final double itemHeight = 190;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,7 +29,11 @@ class _ItemContainerState extends State<ItemContainer> {
       decoration: itemBoxStyle,
       width: itemWidth,
       height: itemHeight,
-      child: widget.image,
+      child: ContainerContent(
+        image: widget.image,
+        name: widget.name,
+        price: prices[widget.name],
+      ),
     );
   }
 }
