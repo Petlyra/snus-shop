@@ -28,7 +28,7 @@ class _ContainerContentState extends State<ContainerContent> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              widget.name,
+              widget.price,
               style: const TextStyle(color: Colors.red, fontSize: 28),
             ),
             const IconButton(
