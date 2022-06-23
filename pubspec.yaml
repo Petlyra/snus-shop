@@ -58,6 +58,9 @@ flutter:
     - assets/Shiro.jpg
     - assets/Siberia.jpg
     - assets/Vika.jpg
+    - assets/Baron.jpg
+    - assets/LYFT.jpg
+    - assets/Thunder.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

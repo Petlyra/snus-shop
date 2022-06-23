@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
       title: 'Snus Shop',
       theme: ThemeData(
           appBarTheme: const AppBarTheme(
-        backgroundColor: Colors.greenAccent,
-        foregroundColor: Colors.black,
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
       )),
       home: const Home(),
     );

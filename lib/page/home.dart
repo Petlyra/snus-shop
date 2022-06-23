@@ -12,7 +12,10 @@ class Home extends StatelessWidget {
         title: Text("Snus Shop"),
         widgets: [
           IconButton(
-            icon: Icon(Icons.search),
+            icon: Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
             tooltip: 'Search',
             onPressed: null,
           )

@@ -11,7 +11,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       leading: const IconButton(
-        icon: Icon(Icons.menu),
+        icon: Icon(
+          Icons.menu,
+          color: Colors.white,
+        ),
         tooltip: "Navigation menu",
         onPressed: null,
       ),
