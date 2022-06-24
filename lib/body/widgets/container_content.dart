@@ -34,7 +34,7 @@ class _ContainerContentState extends State<ContainerContent> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              widget.price,
+              "${widget.price}₴",
               style: const TextStyle(
                 color: Colors.redAccent,
                 fontWeight: FontWeight.w500,

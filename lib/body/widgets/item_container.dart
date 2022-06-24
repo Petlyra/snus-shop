@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:snus_shop/body/widgets/container_content.dart';
-import 'package:snus_shop/utils/load_items.dart';
-import 'package:snus_shop/utils/prices.dart';
+import 'package:snus_shop/utils/data.dart';
 
-import 'manage_container.dart';
+import 'manage_container_header.dart';
 
 const double itemWidth = 160;
 const double itemHeight = 225;
 
-// const double itemWidthEditMode = MediaQuery.of(context).size.width;
 const double itemHeightEditMode = 60;
 
 final itemBoxStyleViewMode = BoxDecoration(
@@ -24,25 +22,28 @@ final itemBoxStyleViewMode = BoxDecoration(
       )
     ]);
 
-final itemBoxStyleEditMode = BoxDecoration(
-    color: Colors.white,
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.5),
-        spreadRadius: 5,
-        blurRadius: 7,
-        offset: const Offset(0, 3),
-      )
-    ]);
+final itemBoxStyleEditMode = BoxDecoration(color: Colors.white, boxShadow: [
+  BoxShadow(
+    color: Colors.black.withOpacity(0.5),
+    spreadRadius: 5,
+    blurRadius: 7,
+    offset: const Offset(0, 3),
+  )
+]);
 
 class ItemContainer extends StatefulWidget {
   const ItemContainer(
-      {Key? key, required this.image, required this.name, required this.mode})
+      {Key? key,
+      required this.image,
+      required this.name,
+      required this.mode,
+      required this.price})
       : super(key: key);
 
   final Widget image;
   final String name;
-  final ItemsMode mode;
+  final String price;
+  final DisplayMode mode;
 
   @override
   State<ItemContainer> createState() => _ItemContainerState();
@@ -51,7 +52,7 @@ class ItemContainer extends StatefulWidget {
 class _ItemContainerState extends State<ItemContainer> {
   @override
   Widget build(BuildContext context) {
-    if (widget.mode == ItemsMode.view) {
+    if (widget.mode == DisplayMode.view) {
       return Container(
         padding: const EdgeInsets.all(5),
         decoration: itemBoxStyleViewMode,
@@ -60,19 +61,19 @@ class _ItemContainerState extends State<ItemContainer> {
         child: ContainerContent(
           image: widget.image,
           name: widget.name,
-          price: prices[widget.name],
+          price: widget.price,
         ),
       );
     } else {
       return Container(
         padding: const EdgeInsets.all(5),
-        decoration: itemBoxStyleViewMode,
+        decoration: itemBoxStyleEditMode,
         width: MediaQuery.of(context).size.width * 0.85,
         height: itemHeightEditMode,
-        child: ManageContainer(
+        child: ManageContainerHeader(
           image: widget.image,
           name: widget.name,
-          price: prices[widget.name],
+          price: widget.price,
         ),
       );
     }
