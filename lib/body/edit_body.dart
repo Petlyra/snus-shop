@@ -17,21 +17,13 @@ class _EditBodyState extends State<EditBody> {
 
   Widget _buildTile(Item item) {
     return ListTile(
-      title: ItemRow(
-        items: [
-          ItemContainer(
-            mode: DisplayMode.edit,
-            image: item.image,
-            name: item.name,
-            price: item.price,
-          ),
-        ],
-      ),
+      title: generateItemRow([item], DisplayMode.edit),
     );
   }
 
   Widget _buildPanel() {
     return ExpansionPanelList(
+      dividerColor: Colors.white,
       expansionCallback: (int index, bool isExpanded) {
         setState(() {
           _items[index].isExpanded = !isExpanded;
@@ -42,11 +34,13 @@ class _EditBodyState extends State<EditBody> {
           headerBuilder: (BuildContext context, bool isExpanded) {
             return _buildTile(item);
           },
-          body: const SizedBox(
-            width: 200,
-            height: 200,
+          body: const ListTile(
+            title: SizedBox(
+              height: 200,
+            ),
           ),
           isExpanded: item.isExpanded,
+          canTapOnHeader: true,
         );
       }).toList(),
     );
@@ -54,9 +48,12 @@ class _EditBodyState extends State<EditBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-      child: _buildPanel(),
+    return SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+        // width: MediaQuery.of(context).size.width,
+        child: _buildPanel(),
+      ),
     );
   }
 }

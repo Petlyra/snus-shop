@@ -17,10 +17,11 @@ class _ManageContainerHeaderState extends State<ManageContainerHeader> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         widget.image,
-        Expanded(
+        SizedBox(
+          width: MediaQuery.of(context).size.width * 0.6,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -43,11 +44,6 @@ class _ManageContainerHeaderState extends State<ManageContainerHeader> {
               ),
             ],
           ),
-        ),
-        const IconButton(
-          icon: Icon(Icons.add),
-          tooltip: "Edit",
-          onPressed: null,
         ),
       ],
     );

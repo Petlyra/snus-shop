@@ -50,32 +50,34 @@ class ItemContainer extends StatefulWidget {
 }
 
 class _ItemContainerState extends State<ItemContainer> {
+  Widget _buildContainer(DisplayMode mode, Widget child) {
+    return Container(
+      padding: const EdgeInsets.all(5),
+      decoration: mode == DisplayMode.view
+          ? itemBoxStyleViewMode
+          : itemBoxStyleEditMode,
+      width: mode == DisplayMode.view
+          ? itemWidth
+          : MediaQuery.of(context).size.width * 0.85,
+      height: mode == DisplayMode.view ? itemHeight : itemHeightEditMode,
+      child: child,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    if (widget.mode == DisplayMode.view) {
-      return Container(
-        padding: const EdgeInsets.all(5),
-        decoration: itemBoxStyleViewMode,
-        width: itemWidth,
-        height: itemHeight,
-        child: ContainerContent(
-          image: widget.image,
-          name: widget.name,
-          price: widget.price,
-        ),
-      );
-    } else {
-      return Container(
-        padding: const EdgeInsets.all(5),
-        decoration: itemBoxStyleEditMode,
-        width: MediaQuery.of(context).size.width * 0.85,
-        height: itemHeightEditMode,
-        child: ManageContainerHeader(
-          image: widget.image,
-          name: widget.name,
-          price: widget.price,
-        ),
-      );
-    }
+    Widget content = DisplayMode.view == widget.mode
+        ? ContainerContent(
+            image: widget.image,
+            name: widget.name,
+            price: widget.price,
+          )
+        : ManageContainerHeader(
+            image: widget.image,
+            name: widget.name,
+            price: widget.price,
+          );
+
+    return _buildContainer(widget.mode, content);
   }
 }

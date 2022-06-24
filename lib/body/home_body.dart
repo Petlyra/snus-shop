@@ -12,10 +12,10 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   final List<Item> _items = mockItems();
-  int extraIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    int extraIndex = 0;
     return Container(
       padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
       child: ListView.builder(
