@@ -12,5 +12,12 @@ class Item {
   String name;
   String price;
   bool isExpanded;
-}
 
+  factory Item.fromJson(Map<String, dynamic> json) {
+    return Item(
+      image: Image.asset(json["image"]),
+      name: json["name"],
+      price: json["price"],
+    );
+  }
+}
