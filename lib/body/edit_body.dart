@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:snus_shop/body/widgets/item_container.dart';
-import 'package:snus_shop/body/widgets/item_row.dart';
 import 'package:snus_shop/utils/data.dart';
 
 import '../entity/item.dart';
@@ -13,7 +11,8 @@ class EditBody extends StatefulWidget {
 }
 
 class _EditBodyState extends State<EditBody> {
-  final List<Item> _items = mockItems();
+  // final List<Item> _items = mockItems();
+  Future<List<Item>>? futureItems;
 
   Widget _buildTile(Item item) {
     return ListTile(
@@ -21,15 +20,15 @@ class _EditBodyState extends State<EditBody> {
     );
   }
 
-  Widget _buildPanel() {
+  Widget _buildPanel(List<Item> futureItems) {
     return ExpansionPanelList(
       dividerColor: Colors.white,
       expansionCallback: (int index, bool isExpanded) {
         setState(() {
-          _items[index].isExpanded = !isExpanded;
+          futureItems[index].isExpanded = !isExpanded;
         });
       },
-      children: _items.map<ExpansionPanel>((Item item) {
+      children: futureItems.map<ExpansionPanel>((Item item) {
         return ExpansionPanel(
           headerBuilder: (BuildContext context, bool isExpanded) {
             return _buildTile(item);
@@ -47,12 +46,32 @@ class _EditBodyState extends State<EditBody> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    futureItems = fetchData();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
         padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
         // width: MediaQuery.of(context).size.width,
-        child: _buildPanel(),
+        child: FutureBuilder<List<Item>>(
+          future: futureItems,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return _buildPanel(snapshot.data!);
+            } else if (snapshot.hasError) {
+              return Center(
+                child: Text('${snapshot.error}'),
+              );
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
+            ) ;
+          },
+        ),
       ),
     );
   }
