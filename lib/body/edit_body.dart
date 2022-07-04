@@ -52,7 +52,7 @@ class _EditBodyState extends State<EditBody> {
   @override
   void initState() {
     super.initState();
-    futureItems = fetchData();
+    futureItems = fetchItems();
   }
 
   @override

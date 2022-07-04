@@ -41,7 +41,7 @@ class _HomeBodyState extends State<HomeBody> {
   @override
   void initState() {
     super.initState();
-    futureItems = fetchData();
+    futureItems = fetchItems();
   }
 
   @override
