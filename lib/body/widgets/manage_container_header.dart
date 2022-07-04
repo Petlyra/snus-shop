@@ -33,9 +33,12 @@ class _ManageContainerHeaderState extends State<ManageContainerHeader> {
             style: buildTextStyle(16),
           ),
           widget.child.image,
-          Text(
-            widget.child.name,
-            style: buildTextStyle(14),
+          SizedBox(
+            width: 100,
+            child: Text(
+              widget.child.name,
+              style: buildTextStyle(14),
+            ),
           ),
           Text(
             "${widget.child.price}₴",

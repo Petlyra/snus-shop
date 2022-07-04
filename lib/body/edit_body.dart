@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:snus_shop/body/widgets/manage_container_body.dart';
 import 'package:snus_shop/utils/data.dart';
 
 import '../entity/item.dart';
@@ -15,9 +16,17 @@ class _EditBodyState extends State<EditBody> {
   // final List<Item> _items = mockItems();
   Future<List<Item>>? futureItems;
 
-  Widget _buildTile(Item item) {
+  Widget _buildHeaderTile(Item item) {
     return ListTile(
       title: generateItemRow([item], DisplayMode.edit),
+    );
+  }
+
+  Widget _buildBodyTile(Item item) {
+    return ListTile(
+      title: ManageContainerBody(
+        item: item,
+      ),
     );
   }
 
@@ -34,13 +43,9 @@ class _EditBodyState extends State<EditBody> {
         children: futureItems.map<ExpansionPanel>((Item item) {
           return ExpansionPanel(
             headerBuilder: (BuildContext context, bool isExpanded) {
-              return _buildTile(item);
+              return _buildHeaderTile(item);
             },
-            body: const ListTile(
-              title: SizedBox(
-                height: 200,
-              ),
-            ),
+            body: _buildBodyTile(item),
             isExpanded: item.isExpanded,
             canTapOnHeader: true,
           );
