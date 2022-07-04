@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:snus_shop/utils/data.dart';
 
 import '../entity/item.dart';
+import '../service/item_service.dart';
 
 class EditBody extends StatefulWidget {
   const EditBody({Key? key}) : super(key: key);

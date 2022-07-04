@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../entity/item.dart';
+import '../service/item_service.dart';
 import '../utils/data.dart';
 
 class HomeBody extends StatefulWidget {
