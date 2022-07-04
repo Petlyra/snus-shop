@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 
+import 'item_container.dart';
+
 class ItemRow extends StatelessWidget {
   const ItemRow({Key? key, required this.items}) : super(key: key);
 
-  final List<Widget> items;
+  final List<ItemContainer> items;
 
   @override
   Widget build(BuildContext context) {

@@ -21,27 +21,30 @@ class _EditBodyState extends State<EditBody> {
   }
 
   Widget _buildPanel(List<Item> futureItems) {
-    return ExpansionPanelList(
-      dividerColor: Colors.white,
-      expansionCallback: (int index, bool isExpanded) {
-        setState(() {
-          futureItems[index].isExpanded = !isExpanded;
-        });
-      },
-      children: futureItems.map<ExpansionPanel>((Item item) {
-        return ExpansionPanel(
-          headerBuilder: (BuildContext context, bool isExpanded) {
-            return _buildTile(item);
-          },
-          body: const ListTile(
-            title: SizedBox(
-              height: 200,
+    return Expanded(
+      child: ExpansionPanelList(
+        animationDuration: const Duration(milliseconds: 500),
+        // dividerColor: Colors.white,
+        expansionCallback: (int index, bool isExpanded) {
+          setState(() {
+            futureItems[index].isExpanded = !isExpanded;
+          });
+        },
+        children: futureItems.map<ExpansionPanel>((Item item) {
+          return ExpansionPanel(
+            headerBuilder: (BuildContext context, bool isExpanded) {
+              return _buildTile(item);
+            },
+            body: const ListTile(
+              title: SizedBox(
+                height: 200,
+              ),
             ),
-          ),
-          isExpanded: item.isExpanded,
-          canTapOnHeader: true,
-        );
-      }).toList(),
+            isExpanded: item.isExpanded,
+            canTapOnHeader: true,
+          );
+        }).toList(),
+      ),
     );
   }
 
@@ -54,24 +57,20 @@ class _EditBodyState extends State<EditBody> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-        // width: MediaQuery.of(context).size.width,
-        child: FutureBuilder<List<Item>>(
-          future: futureItems,
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return _buildPanel(snapshot.data!);
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text('${snapshot.error}'),
-              );
-            }
-            return const Center(
-              child: CircularProgressIndicator(),
-            ) ;
-          },
-        ),
+      child: FutureBuilder<List<Item>>(
+        future: futureItems,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return _buildPanel(snapshot.data!);
+          } else if (snapshot.hasError) {
+            return Center(
+              child: Text('${snapshot.error}'),
+            );
+          }
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        },
       ),
     );
   }

@@ -1,51 +1,53 @@
 import 'package:flutter/material.dart';
 
+import '../../entity/item.dart';
+
 class ManageContainerHeader extends StatefulWidget {
-  const ManageContainerHeader(
-      {Key? key, required this.image, required this.name, required this.price})
+  const ManageContainerHeader({Key? key, required this.child})
       : super(key: key);
 
-  final Widget image;
-  final String name;
-  final String price;
+  final Item child;
 
   @override
   State<ManageContainerHeader> createState() => _ManageContainerHeaderState();
 }
 
 class _ManageContainerHeaderState extends State<ManageContainerHeader> {
+  TextStyle buildTextStyle(double fontSize) {
+    return TextStyle(
+      color: Colors.black,
+      fontSize: fontSize,
+      backgroundColor: Colors.white,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        widget.image,
-        SizedBox(
-          width: MediaQuery.of(context).size.width * 0.6,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                widget.name,
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 14,
-                  backgroundColor: Colors.white,
-                ),
-              ),
-              Text(
-                "${widget.price}₴",
-                style: const TextStyle(
-                  color: Colors.redAccent,
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
-                  backgroundColor: Colors.white,
-                ),
-              ),
-            ],
+    return Container(
+      padding: const EdgeInsets.only(left: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            widget.child.id,
+            style: buildTextStyle(16),
           ),
-        ),
-      ],
+          widget.child.image,
+          Text(
+            widget.child.name,
+            style: buildTextStyle(14),
+          ),
+          Text(
+            "${widget.child.price}₴",
+            style: const TextStyle(
+              color: Colors.redAccent,
+              fontWeight: FontWeight.w500,
+              fontSize: 18,
+              backgroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

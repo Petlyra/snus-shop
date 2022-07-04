@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:snus_shop/entity/item.dart';
 
 class ContainerContent extends StatefulWidget {
   const ContainerContent(
-      {Key? key, required this.image, required this.name, required this.price})
+      {Key? key, required this.child})
       : super(key: key);
 
-  final Widget image;
-  final String name;
-  final String price;
+  final Item child;
 
   @override
   State<ContainerContent> createState() => _ContainerContentState();
@@ -19,10 +18,10 @@ class _ContainerContentState extends State<ContainerContent> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        widget.image,
+        widget.child.image,
         Center(
           child: Text(
-            widget.name,
+            widget.child.name,
             style: const TextStyle(
               color: Colors.black,
               fontSize: 14,
@@ -34,7 +33,7 @@ class _ContainerContentState extends State<ContainerContent> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "${widget.price}₴",
+              "${widget.child.price}₴",
               style: const TextStyle(
                 color: Colors.redAccent,
                 fontWeight: FontWeight.w500,

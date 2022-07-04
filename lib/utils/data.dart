@@ -54,6 +54,8 @@ List<Item> mockItems() {
     var itemData = item.split(";");
 
     return Item(
+      id: "000",
+      createdAt: "11/11/2022",
       image: Image.asset(itemData[0]),
       name: itemData[1],
       price: itemData[2],
@@ -66,9 +68,7 @@ Widget generateItemRow(List<Item> items, DisplayMode mode) {
     items: items.map<ItemContainer>((item) {
       return ItemContainer(
         mode: mode,
-        image: item.image,
-        name: item.name,
-        price: item.price,
+        child: item,
       );
     }).toList(),
   );
