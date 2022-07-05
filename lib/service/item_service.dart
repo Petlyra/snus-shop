@@ -29,7 +29,6 @@ Future<Item> updateItem(ItemRequest itemRequest) async {
     },
     body: jsonEncode(<String, String>{
       "name": itemRequest.name,
-      "image": itemRequest.image,
       "price": itemRequest.price
     }),
   );
@@ -43,8 +42,7 @@ Future<Item> updateItem(ItemRequest itemRequest) async {
 
 class ItemRequest {
   String name;
-  String image;
   String price;
 
-  ItemRequest(this.name, this.image, this.price);
+  ItemRequest(this.name, this.price);
 }

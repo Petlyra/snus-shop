@@ -34,7 +34,6 @@ class _EditBodyState extends State<EditBody> {
     return Expanded(
       child: ExpansionPanelList(
         animationDuration: const Duration(milliseconds: 500),
-        // dividerColor: Colors.white,
         expansionCallback: (int index, bool isExpanded) {
           setState(() {
             futureItems[index].isExpanded = !isExpanded;

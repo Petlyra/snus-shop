@@ -21,28 +21,20 @@ class _TextFieldWithLabelState extends State<TextFieldWithLabel> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            width: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "${widget.label}:",
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                Text(widget.value),
-              ],
-            ),
+          Text(
+            "${widget.label}:",
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: widget.controller != null
-                ? TextField(
-                    controller: widget.controller,
-                    decoration: const InputDecoration(hintText: "Enter id"),
-                  )
-                : null,
-          ),
+          Text(widget.value),
+          // Container(
+          //   padding: const EdgeInsets.symmetric(horizontal: 10),
+          //   child: widget.controller != null
+          //       ? TextField(
+          //     controller: widget.controller,
+          //     decoration: const InputDecoration(hintText: "Enter id"),
+          //   )
+          //       : null,
+          // ),
         ],
       ),
     );
