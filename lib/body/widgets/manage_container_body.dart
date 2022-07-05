@@ -20,7 +20,8 @@ class _ManageContainerBodyState extends State<ManageContainerBody> {
   Future<Item>? _futureItem;
 
   Future<Item> _sendUpdateRequest(Item item) {
-    ItemRequest request = ItemRequest(_nameController.text, _priceController.text);
+    ItemRequest request =
+        ItemRequest(_nameController.text, _priceController.text);
     return updateItem(request);
   }
 
@@ -33,21 +34,21 @@ class _ManageContainerBodyState extends State<ManageContainerBody> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           TextFieldWithLabel(
-            label: "id",
+            label: "Id",
             value: widget.item.id,
           ),
           TextFieldWithLabel(
-            label: "name",
+            label: "Name",
             value: widget.item.name,
             controller: _nameController,
           ),
           TextFieldWithLabel(
-            label: "price",
+            label: "Price",
             value: widget.item.price,
             controller: _priceController,
           ),
           TextFieldWithLabel(
-            label: "cratedAt",
+            label: "Creation date",
             value: widget.item.createdAt,
           ),
           ElevatedButton(

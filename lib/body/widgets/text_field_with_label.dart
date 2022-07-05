@@ -26,14 +26,9 @@ class _TextFieldWithLabelState extends State<TextFieldWithLabel> {
             style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           Text(widget.value),
-          // Container(
-          //   padding: const EdgeInsets.symmetric(horizontal: 10),
-          //   child: widget.controller != null
-          //       ? TextField(
-          //     controller: widget.controller,
-          //     decoration: const InputDecoration(hintText: "Enter id"),
-          //   )
-          //       : null,
+          // TextField(
+          //   controller: widget.controller,
+          //   decoration: InputDecoration(hintText: "Enter ${widget.label}"),
           // ),
         ],
       ),
